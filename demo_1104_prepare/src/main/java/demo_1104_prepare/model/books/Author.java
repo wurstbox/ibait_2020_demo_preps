@@ -29,4 +29,35 @@ public class Author
 		this.books = books;
 	}
 
+	@Override
+	public int hashCode()
+	{
+		int result = 0;
+
+		if (this.name != null)
+		{
+			result = name.length();
+		}
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		boolean result;
+		
+		if (obj == null)
+			result = false;
+		else if(this == obj)
+			result = true;
+		else if( this.getClass() != obj.getClass())
+			result = false;
+		else
+		{
+			Author that = (Author) obj;
+			result = Objects.equals(this.name, that.name);
+		}
+		
+		return result;
+	}
+
 }
